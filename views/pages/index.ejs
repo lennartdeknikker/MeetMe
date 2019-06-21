@@ -1,0 +1,31 @@
+<% include ../partials/head %>
+
+<body>
+    <% include ../partials/headers/main %>
+    <% if (userAvailability) { %> <% include ../partials/activities %> <% } %>
+    <main>
+        <h2>Available people nearby:</h2>
+        <section class="images">
+            <img src="upload/profile1.jpg" alt="">
+        </section>
+
+    <% if (userAvailability) { %>
+        <section class="info">
+            <h2>Activities Susan would be interested in:</h2>
+            <div class="activity-icons">
+                <img src="images/ic_ac_chat.png" alt="">
+                <img src="images/ic_ac_coffee.png" alt="">
+            </div>
+        </section>
+    <% } else { %>
+        <section class="info">
+            <h2>About Susan (25)</h2>
+            In my experience conversations in dating apps are really superficial. It’s too easy to forget to answer for a day or two or just lose interest when someone doesn’t answer right away. Because of that it’s not always easy to go from starting a conversation to planning a date, but there’s even more obstacles. People don’t always live in the same city and they’re not always available.
+        </section>
+    <% } %>
+
+    </main>
+    <% include ../partials/footer%>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<% include ../partials/head %>
+
+<body>
+    <% include ../partials/headers/settings %>
+    <main>
+        <h2>My profile picture:</h2>
+        <section class="images">
+            <img src="upload/<%= profilePictureUrl %>" alt="Profile picture">
+        </section>
+        <section class="info">
+            <h2>About Me</h2>
+            <%= aboutText %>
+        </section>
+    </main>
+    <footer>
+        <a href="information">
+            <span>Change Information</span>
+        </a>
+        <a href="picture">
+            <span>Change Picture</span>
+        </a>
+        <a href="settings">
+            <span>Other settings</span>
+        </a>
+    </footer>
+</body>
+
+</html>

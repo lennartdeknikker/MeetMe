@@ -1,0 +1,94 @@
+<form action="/information" method="POST">
+    <fieldset>
+        <legend>My Info</legend>
+        <div>
+            <label for="name">My Name</label>
+            <input class="in-name" type="text" name="name" id="name" value="<%= data.name %>" required disabled>
+        </div>
+        <div>
+            <label for="birthday">My Birthday</label>
+            <input type="text" name="birthday" id="birthday" value="<%= data.birthday %>" required>
+        </div>
+        <div>
+            <label for="introduction">My Introduction</label>
+            <textarea name="introduction" id="introduction"
+                rows="2" required><%= data.introduction %></textarea>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>My Interests</legend>
+        <div>
+            <label for="music">Music</label>
+            <select name="music" id="music">
+                <option <% if (data.music == "Hate it") {%> selected <%}%> value="Hate it">Hate it</option>
+                <option <% if (data.music == "Dislike it") {%> selected <%}%> value="Dislike it">Dislike it</option>
+                <option <% if (data.music == "Neutral") {%> selected <%}%> value="Neutral">Neutral</option>
+                <option <% if (data.music == "Like it") {%> selected <%}%> value="Like it">Like it</option>
+                <option <% if (data.music == "Love it") {%> selected <%}%> value="Love it">Love it</option>
+            </select>
+        </div>
+        <div>
+            <label for="movies">Movies</label>
+            <select name="movies" id="movies">
+                <option <% if (data.movies == "Hate it") {%> selected <%}%> value="Hate it">Hate it</option>
+                <option <% if (data.movies == "Dislike it") {%> selected <%}%> value="Dislike it">Dislike it</option>
+                <option <% if (data.movies == "Neutral") {%> selected <%}%> value="Neutral">Neutral</option>
+                <option <% if (data.movies == "Like it") {%> selected <%}%> value="Like it">Like it</option>
+                <option <% if (data.movies == "Love it") {%> selected <%}%> value="Love it">Love it</option>
+            </select>
+        </div>
+        <div>
+            <label for="books">Books</label>
+            <select name="books" id="books">
+                <option <% if (data.books == "Hate it") {%> selected <%}%> value="Hate it">Hate it</option>
+                <option <% if (data.books == "Dislike it") {%> selected <%}%> value="Dislike it">Dislike it</option>
+                <option <% if (data.books == "Neutral") {%> selected <%}%> value="Neutral">Neutral</option>
+                <option <% if (data.books == "Like it") {%> selected <%}%> value="Like it">Like it</option>
+                <option <% if (data.books == "Love it") {%> selected <%}%> value="Love it">Love it</option>
+            </select>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>My favorite animal</legend>
+        <div>
+            <div>
+                <label for="dog">Dog</label>
+                <input type="radio" name="animal" value="dog" id="dog" <% if (data.animal == "dog") {%> checked="checked" <%}%>>
+            </div>
+        </div>
+            <div>
+                <label for="dogBreed" title="Breed of dog">Breed:</label>
+                <% if (dogBreeds) { %>
+                <select name="dogBreed" id="dogBreed">
+                    <% for (i = 0; i < dogBreeds.length; i++) { %>
+                        <option <% if (data.dogBreed == dogBreeds[i]) {%> selected <%}%> value=<%= dogBreeds[i] %>><%= dogBreeds[i] %></option>
+                    <% } %>
+                </select>
+                <% } else { %>
+                    <input type="text" name="dogBreed" id="dogBreed" value="<%= data.dogBreed %>">
+                <% } %>
+            </div>
+        <div>
+            <div>
+                <label for="cat">Cat</label>
+                <input type="radio" name="animal" value="cat" id="cat" <% if (data.animal == "cat") {%> checked="checked" <%}%>>
+            </div>
+        </div>
+        <div>
+            <label for="catBreed" title="Breed of cat">Breed:</label>
+            <% if (catBreeds) { %>
+                <select name="catBreed" id="catBreed">
+                    <% for (i = 0; i < catBreeds.length; i++) { %>
+                        <option <% if (data.catBreed == catBreeds[i].replace(/\s/g, "-")) {%> selected <%}%> value=<%= catBreeds[i].replace(/\s/g, "-") %>><%= catBreeds[i] %></option>
+                    <% } %>
+                </select>
+                <% } else { %>
+                    <input type="text" name="catBreed" id="catBreed" value="<%= data.catBreed %>">
+                <% } %>
+            </div>
+    </fieldset>
+    <fieldset class="fieldset-save">
+        <button type="submit" value="submit" class="save-button">Save</button>
+    </fieldset>
+</form>
+

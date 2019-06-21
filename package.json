@@ -1,0 +1,35 @@
+{
+  "name": "meet-me",
+  "version": "1.0.0",
+  "description": "a dating app for people to meet right away whenever you're available.",
+  "keywords": [
+    "meet me",
+    "dating"
+  ],
+  "homepage": "https://github.com/lennartdeknikker/MeetMe",
+  "bugs": {
+    "url": "https://github.com/lennartdeknikker/MeetMe/issues"
+  },
+  "license": "MIT",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lennartdeknikker/MeetMe"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.0",
+    "express-session": "^1.16.1",
+    "mongodb": "^3.2.5",
+    "multer": "^1.4.1",
+    "request": "^2.88.0",
+    "slug": "^1.1.0"
+  }
+}

@@ -1,0 +1,17 @@
+<% include ../partials/head %>
+
+<body class="grey-section">
+    <% include ../partials/headers/settings %>
+    <main class="main-information">
+            <h2>My current profile picture:</h2>
+        <img src="upload/<%= profilePictureUrl %>" class="profile-picture" alt="profile picture">
+        <form action="/picture" method="POST" enctype="multipart/form-data">
+            <label for="profilePicture" title="Profile Picture"></label>
+            <input name="profilePicture" class="btn-select-picture" type=file accept=image/*>
+            <button class="save-button">Change picture</button>
+        </form>
+
+    </main>
+</body>
+
+</html>
