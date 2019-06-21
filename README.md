@@ -1,15 +1,20 @@
-# Dating-app-registration
-This feature can be used in dating apps to change or add information to a profile.
-The deployed application can be found on https://dating-app-lennart.herokuapp.com/
+# MeetMe Dating Application
+## Description
+In my experience conversations in dating apps are really superficial. It’s too easy to forget to answer for a day or two or just lose interest when someone doesn’t answer right away. Because of that it’s not always easy to go from starting a conversation to planning a date, but there’s even more obstacles. People don’t always live in the same city and they’re not always available.
+
+This application will help people to impulsively go on a date. There's no need for waiting, you can just change your status whenever you're available, show others what activities you'd like to do and find someone to go on a date with right away.
 
 ## Installation
-Either through cloning with git or by using npm (the recommended way):
-`npm install dating-app-registration`
+Use the clone repository:
+`https://github.com/lennartdeknikker/MeetMe.git`
+and install packages using
+`npm install`
 
-And the feature will be installed to your system path.
+The feature will be installed to your system path.
 
-You can also install this feature as a development dependency:
-`npm install --save-dev dating-app-registration`
+## Usage
+To run the application use
+`npm start`
 
 ## License
 Unless stated otherwise, code is MIT © [Lennart de Knikker](http://www.lenn4rt.com).
