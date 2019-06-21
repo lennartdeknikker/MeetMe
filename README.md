@@ -21,4 +21,4 @@ Unless stated otherwise, code is MIT © [Lennart de Knikker](http://www.lenn4rt.
 
 ## References
 Most pictures of people are produced by a GAN (generative adversarial network) on www.thispersondoesnotexist.com.
-Icons are from thenounproject.com.
+Icons are from www.thenounproject.com.
