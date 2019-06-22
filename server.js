@@ -8,6 +8,22 @@ const session = require('express-session');
 // GLOBAL VARIABLES
 const userId = "5cf6bef51c9d440000db960c";
 
+// CONTROLLERS
+const available = require('./controllers/available');
+const getCats = require('./controllers/getCats');
+const getInformation = require('./controllers/getInformation');
+const home = require('./controllers/home');
+const information = require('./controllers/information');
+const login = require('./controllers/login');
+const loginPage = require('./controllers/loginPage');
+const logout = require('./controllers/logout');
+const pageNotFound = require('./controllers/pageNotFound');
+const picture = require('./controllers/picture');
+const profile = require('./controllers/profile');
+const remove = require('./controllers/remove');
+const saveInformation = require('./controllers/saveInformation');
+const settings = require('./controllers/settings');
+
 // MULTER SETUP (for uploading images)
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
