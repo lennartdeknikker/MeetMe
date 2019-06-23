@@ -23,6 +23,7 @@ const profile = require('./controllers/profile');
 const remove = require('./controllers/remove');
 const saveInformation = require('./controllers/saveInformation');
 const settings = require('./controllers/settings');
+const savePicture = require('./controllers/savePicture');
 
 // MULTER SETUP (for uploading images)
 const storage = multer.diskStorage({
