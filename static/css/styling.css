@@ -321,3 +321,7 @@ textarea {
 .btn-logout {
     background-color: #d0006f;
 }
+
+.btn-next {
+    display: none;
+}
