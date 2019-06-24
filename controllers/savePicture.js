@@ -15,25 +15,23 @@ mongo.MongoClient.connect(url, {
 });
 
 
-function profile(req, res) {
-    const headerText = "My Profile";
-    const backLink = "/";
-    db.collection('information').find({
+// Save profile picture
+function savePicture(req, res) {
+    db.collection('information').updateOne({
         _id: new mongo.ObjectID(userId)
-    }).toArray(done);
+    }, {
+        $set: {
+            profilePictureUrl: req.file ? req.file.filename : null
+        }
+    }, done);
 
     function done(err, data) {
         if (err) {
             next(err);
         } else {
-            res.render('pages/profile', {
-                headerText: headerText,
-                backLink: backLink,
-                profilePictureUrl: data[0].profilePictureUrl,
-                aboutText: data[0].introduction
-            });
+            res.redirect('/profile');
         }
     }
 }
 
-module.exports = profile;
+module.exports = savePicture;

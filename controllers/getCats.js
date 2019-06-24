@@ -1,3 +1,5 @@
+const request = require('request');
+
 function getCats() {
     request('https://api.thecatapi.com/v1/breeds', {
             'x-api-key': process.env.API_KEY_CATBREEDS

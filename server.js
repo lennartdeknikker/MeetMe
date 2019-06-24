@@ -8,10 +8,8 @@ const session = require('express-session');
 // GLOBAL VARIABLES
 const userId = "5cf6bef51c9d440000db960c";
 
-// CONTROLLERS
 const available = require('./controllers/available');
 const getCats = require('./controllers/getCats');
-const getInformation = require('./controllers/getInformation');
 const home = require('./controllers/home');
 const information = require('./controllers/information');
 const login = require('./controllers/login');
@@ -23,6 +21,7 @@ const profile = require('./controllers/profile');
 const remove = require('./controllers/remove');
 const saveInformation = require('./controllers/saveInformation');
 const settings = require('./controllers/settings');
+const savePicture = require('./controllers/savePicture');
 
 // MULTER SETUP (for uploading images)
 const storage = multer.diskStorage({
@@ -108,3 +107,26 @@ express()
     .listen(process.env.PORT, function () {
         console.log('listening on port: ' + process.env.PORT);
     });
+
+
+    // Get User Info from MongoDB,
+    function getInformation() {
+        db.collection('information').find({
+            _id: new mongo.ObjectID(userId)
+        }).toArray(done);
+
+        // then render the page.
+        function done(err, data) {
+            if (err) {
+                next(err);
+            } else {
+                res.render('pages/information', {
+                    headerText: "Change / Add Information",
+                    backLink: "/profile",
+                    data: data[0],
+                    dogBreeds: dogBreeds,
+                    catBreeds: catBreeds
+                });
+            }
+        }
+    }
