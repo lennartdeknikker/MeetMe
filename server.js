@@ -10,7 +10,6 @@ const userId = "5cf6bef51c9d440000db960c";
 
 const available = require('./controllers/available');
 const getCats = require('./controllers/getCats');
-// const getInformation = require('./controllers/getInformation');
 const home = require('./controllers/home');
 const information = require('./controllers/information');
 const login = require('./controllers/login');
@@ -108,7 +107,6 @@ express()
     .listen(process.env.PORT, function () {
         console.log('listening on port: ' + process.env.PORT);
     });
-
 
 
     // Get User Info from MongoDB,
