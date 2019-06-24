@@ -1,0 +1,28 @@
+<% include ../partials/head %>
+
+<body class="grey-section">
+	<% include ../partials/headers/login %>
+	<main>
+		<section class="logo-container">
+			<img src="images/logo_full.png" alt="logo" class="logo">
+		</section>
+		<form action="/register" method="POST" class="form-login">
+			<h2>Create an account</h2>
+			<fieldset>
+				<div>
+					<label for="username">Username:</label>
+					<input type="text" name="username" id="username">
+				</div>
+				<div>
+					<label for="password">Password:</label>
+					<input type="password" name="password" id="password">
+				</div>
+			</fieldset>
+			<fieldset class="fieldset-save">
+				<button type="submit" value="submit" class="save-button">Register</button>
+			</fieldset>
+		</form>
+	</main>
+</body>
+
+</html>
