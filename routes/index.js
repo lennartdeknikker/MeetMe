@@ -18,5 +18,6 @@ router.get("/logout", accountController.logout);
 
 // profile routing
 router.get("/index",  ensureAuthenticated, profileController.index);
+router.get("/profile", ensureAuthenticated, profileController.profile);
 
 module.exports = router;
