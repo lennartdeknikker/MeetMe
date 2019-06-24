@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // authentication imports
-const { ensureAuthenticated } = require("../utilities/auth");
+const { ensureAuthenticated } = require("../utilities/util.auth");
 
 // controller imports
 const accountController = require("../controllers/account.js");
@@ -17,7 +17,7 @@ router.post("/login", accountController.loginPost);
 router.get("/logout", accountController.logout);
 
 // profile routing
-router.get("/index",  ensureAuthenticated, profileController.index);
-router.get("/profile", ensureAuthenticated, profileController.profile);
+router.get("/index",/*   ensureAuthenticated, */ profileController.index);
+router.get("/profile",/*  ensureAuthenticated, */ profileController.profile);
 
 module.exports = router;

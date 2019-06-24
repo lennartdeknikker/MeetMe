@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Aanmaken van schema voor een story
-const StorySchema = new Schema({
+const UserSchema = new Schema({
 	username: {
 		type: String,
 		required: true
@@ -17,4 +17,4 @@ const StorySchema = new Schema({
 	}
 });
 
-mongoose.model("user", StorySchema);
+mongoose.model("user", UserSchema);

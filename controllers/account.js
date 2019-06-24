@@ -26,7 +26,7 @@ exports.registerPost = function (req, res) {
 				const newUser = new User({
 					username: req.body.username,
 					password: req.body.password,
-					information_id: "123"
+					information_id: "5d11491f1c9d440000ee75d4"
 				});
 
 				// Bcrypt password hashing
