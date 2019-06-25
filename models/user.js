@@ -11,9 +11,45 @@ const UserSchema = new Schema({
 		type: String,
 		required: true
 	},
-	information_id: {
+	name: {
 		type: String,
 		required: true
+	},
+	birthday: {
+		type: String,
+		required: false
+	},
+	introduction: {
+		type: String,
+		required: false
+	},
+	music: {
+		type: String,
+		required: false
+	},
+	movies: {
+		type: String,
+		required: false
+	},
+	books: {
+		type: String,
+		required: false
+	},
+	animal: {
+		type: String,
+		required: false
+	},
+	dogBreed: {
+		type: String,
+		required: false
+	},
+	catBreed: {
+		type: String,
+		required: false
+	},
+	profilePictureUrl: {
+		type: String,
+		required: false
 	}
 });
 

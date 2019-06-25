@@ -2,8 +2,6 @@
 const mongoose = require("mongoose");
 require("../models/User");
 const User = mongoose.model("user");
-require("../models/Information");
-const Information = mongoose.model("information");
 
 require("dotenv").config();
 
@@ -17,17 +15,6 @@ mongoUtilities.findUser = function (id) {
 		})
 		.then(function (user) {
 			return user;
-		});
-};
-
-// find user information by information-id
-mongoUtilities.findInformationOfUser = function (user) {
-	return Information
-		.findOne({
-			_id: user.information_id
-		})
-		.then(function (information) {
-			return information;
 		});
 };
 
