@@ -19,7 +19,6 @@ exports.indexAvailable = function (req, res) {
 
 // profile page loader
 exports.profile = function (req, res) {
-	console.log(req.session.passport.user);
 	mongoUtilities.findUser(req.session.passport.user).then(function (user) {
 			res.render("pages/profile", {
 				headerText: "My Profile",

@@ -8,6 +8,7 @@ const { ensureAuthenticated } = require("../utilities/util.auth");
 // controller imports
 const accountController = require("../controllers/control.account");
 const profileController = require("../controllers/control.profile");
+const changeInformationController = require("../controllers/control.change.information");
 
 // register and login routing
 router.get("/register", accountController.register);
@@ -20,5 +21,8 @@ router.get("/logout", accountController.logout);
 router.get("/available",ensureAuthenticated, profileController.indexAvailable);
 router.get("/index",ensureAuthenticated, profileController.index);
 router.get("/profile",  ensureAuthenticated, profileController.profile);
+
+// change information routing
+router.get("/information", ensureAuthenticated, changeInformationController.loadInfo);
 
 module.exports = router;
