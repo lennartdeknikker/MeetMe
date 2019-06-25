@@ -1,16 +1,19 @@
 const mongoUtilities = require("../utilities/util.mongo");
+let userAvailability = true;
 
 // index page loader
 exports.index = function (req, res) {
+	userAvailability = false;
 	res.render("pages/index", {
-		userAvailability: "false",
+		userAvailability: userAvailability
 	});
 };
 
 // index page loader when available
 exports.indexAvailable = function (req, res) {
+	userAvailability = true;
 	res.render("pages/index", {
-		userAvailability: "true",
+		userAvailability: userAvailability
 	});
 };
 
