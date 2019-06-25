@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const express = require('express');
+
 const mongo = require('mongodb');
 let db = null;
 const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@profiles-ttwoc.mongodb.net/test?retryWrites=true';
@@ -13,8 +15,8 @@ mongo.MongoClient.connect(url, {
     db = client.db(process.env.DB_NAME);
 });
 
-async function login(req, res) {
-	db.collection('login').find({
+function login(req, res) {
+	db.collection('test').find({
 		username: req.body.username,
 		password: req.body.password
 	}).toArray(done);
