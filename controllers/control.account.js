@@ -10,7 +10,8 @@ const User = mongoose.model("user");
 // registration loaders
 exports.register = function (req, res) {
 	res.render("pages/register", {
-		headerText: "register"
+		headerText: "register",
+		backLink: "/"
 	});
 };
 

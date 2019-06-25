@@ -19,7 +19,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 // Binnenhalen van routes
-const routes = require("./routes/index");
+const routes = require("./routes/routes.index");
 
 // Binnenhalen van passport config
 require("./config/passport")(passport);

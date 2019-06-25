@@ -3,13 +3,13 @@
         <a href="profile">
             <img src="images/ic_profile.png" alt="profile">
         </a>
-
-        <% if (!userAvailability) { %>
+		<%= userAvailability %>
+        <% if (userAvailability == false) { %>
             <a href="available">
                 <img src="images/ic_not_available.png" alt="click to change your status to available">
             </a>
         <% } else { %>
-            <a href="/">
+            <a href="index">
                 <img src="images/ic_available.png" alt="click to change your status to unavailable">
             </a>
         <% } %>

@@ -6,8 +6,8 @@ const router = express.Router();
 const { ensureAuthenticated } = require("../utilities/util.auth");
 
 // controller imports
-const accountController = require("../controllers/account.js");
-const profileController = require("../controllers/profile");
+const accountController = require("../controllers/control.account");
+const profileController = require("../controllers/control.profile");
 
 // register and login routing
 router.get("/register", accountController.register);
@@ -17,7 +17,8 @@ router.post("/login", accountController.loginPost);
 router.get("/logout", accountController.logout);
 
 // profile routing
-router.get("/index",/*   ensureAuthenticated, */ profileController.index);
-router.get("/profile",/*  ensureAuthenticated, */ profileController.profile);
+router.get("/available",ensureAuthenticated, profileController.indexAvailable);
+router.get("/index",ensureAuthenticated, profileController.index);
+router.get("/profile",  ensureAuthenticated, profileController.profile);
 
 module.exports = router;

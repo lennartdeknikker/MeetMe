@@ -3,8 +3,14 @@ const mongoUtilities = require("../utilities/util.mongo");
 // index page loader
 exports.index = function (req, res) {
 	res.render("pages/index", {
-		headerText: "index",
-		userAvailability: "true"
+		userAvailability: "false",
+	});
+};
+
+// index page loader when available
+exports.indexAvailable = function (req, res) {
+	res.render("pages/index", {
+		userAvailability: "true",
 	});
 };
 
