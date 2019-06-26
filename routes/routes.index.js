@@ -7,8 +7,8 @@ const { ensureAuthenticated } = require("../utilities/util.auth");
 
 // controller imports
 const accountController = require("../controllers/control.account");
-const profileController = require("../controllers/control.profile");
-const changeInformationController = require("../controllers/control.change.information");
+const profileController = require("../controllers/controller_index");
+const informationController = require("../controllers/controller_information");
 
 // register and login routing
 router.get("/register", accountController.register);
@@ -23,6 +23,7 @@ router.get("/index",ensureAuthenticated, profileController.index);
 router.get("/profile",  ensureAuthenticated, profileController.profile);
 
 // change information routing
-router.get("/information", ensureAuthenticated, changeInformationController.loadInfo);
+router.get("/information", ensureAuthenticated, informationController.loadInfo);
+router.post("/information", ensureAuthenticated, informationController.saveInfo);
 
 module.exports = router;
