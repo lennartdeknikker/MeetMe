@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 // User model import
-require("../models/User");
+require("../models/user");
 const User = mongoose.model("user");
 
 // registration loaders
