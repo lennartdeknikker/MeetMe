@@ -6,11 +6,13 @@ const router = express.Router();
 const { ensureAuthenticated } = require("../utilities/util.auth");
 
 // controller imports
-const accountController = require("../controllers/control.account");
+const accountController = require("../controllers/controller_account");
 const profileController = require("../controllers/controller_index");
 const informationController = require("../controllers/controller_information");
+const pictureController = require("../controllers/controller_picture");
 
 // register and login routing
+router.get("/", accountController.login);
 router.get("/register", accountController.register);
 router.post("/register", accountController.registerPost);
 router.get("/login", accountController.login);
@@ -25,5 +27,9 @@ router.get("/profile",  ensureAuthenticated, profileController.profile);
 // change information routing
 router.get("/information", ensureAuthenticated, informationController.loadInfo);
 router.post("/information", ensureAuthenticated, informationController.saveInfo);
+
+// change picture routing
+router.get("/picture", ensureAuthenticated, pictureController.loadPicture);
+router.post("/picture", ensureAuthenticated, pictureController.savePicture);
 
 module.exports = router;

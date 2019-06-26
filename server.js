@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const passport = require("passport");
+const pictureController = require("./controllers/controller_picture");
 
 // global variable to save the profile picture using the userID.
 const userId = "5cf6bef51c9d440000db960c";
@@ -23,9 +24,6 @@ const routes = require("./routes/routes.index");
 
 // Binnenhalen van passport config
 require("./config/passport")(passport);
-
-// require("dotenv").config();
-// const mongooseURL = process.env.MONGO_DB_URL;
 
 // Database setup -----------------------------------------
 const dbConfig = require("./config/mongo");
@@ -90,41 +88,9 @@ const upload = multer({
     storage: storage
 });
 
-
 // Routes op server ---------------------------------------
-app.get("/", (req, res) => {
-	res.render("pages/login", {
-		headerText: "log in"
-	});
-});
-
-app.post("/picture", upload.single("profilePicture"), savePicture);
-
-app.get("/about", (req, res) => {
-	res.render("about");
-});
-
+app.post("/picture", upload.single("profilePicture"), pictureController.savePicture);
 app.use("/", routes);
-
 app.listen(port, () => {
 	console.log(`Server has started at localhost:${port}`);
 });
-
-// Save profile picture
-function savePicture(req, res) {
-    db.collection("information").updateOne({
-        _id: new mongo.ObjectID(userId)
-    }, {
-        $set: {
-            profilePictureUrl: req.file ? req.file.filename : null
-        }
-    }, done);
-
-    function done(err, data) {
-        if (err) {
-            next(err);
-        } else {
-            res.redirect("/profile");
-        }
-    }
-}
