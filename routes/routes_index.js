@@ -32,4 +32,8 @@ router.post("/information", ensureAuthenticated, informationController.saveInfo)
 router.get("/picture", ensureAuthenticated, pictureController.loadPicture);
 router.post("/picture", ensureAuthenticated, pictureController.savePicture);
 
+// settings routing
+router.get("/settings", ensureAuthenticated, profileController.settings);
+router.delete("/settings/:username", ensureAuthenticated, profileController.onDelete);
+
 module.exports = router;
