@@ -1,28 +1,31 @@
-// IMPORTS
+/* eslint-disable no-undef */
+/* eslint-disable no-console */
 require("dotenv").config();
-require("./config/passport")(passport);
-const routes = require("./routes/routes.index");
 
-// controllers
-const pictureController = require("./controllers/controller_picture");
-
-// node modules
+// Binnenhalen van node modules
 const express = require("express");
 const session = require("express-session");
+const flash = require("connect-flash");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const passport = require("passport");
+const pictureController = require("./controllers/controller_picture");
 
-// global variable to save the profile picture using the userID (needs to be changed to use the id defined by the user later on).
+// global variable to save the profile picture using the userID.
 const userId = "5cf6bef51c9d440000db960c";
 
-// EXPRESS SETUP
+// Initiëren van applicatie
 const app = express();
 const port = process.env.PORT || 8080;
-// Binnenhalen van routes
 
-// DATABASE SETUP
+// Binnenhalen van routes
+const routes = require("./routes/routes.index");
+
+// Binnenhalen van passport config
+require("./config/passport")(passport);
+
+// Database setup -----------------------------------------
 const dbConfig = require("./config/mongo");
 mongoose.connect(dbConfig.mongoURI, {
 	useNewUrlParser: true
@@ -39,50 +42,53 @@ db.on("disconnected", () => {
 	console.log("Database has disconnected.");
 });
 
-// MULTER SETUP (for uploading images)
-const storage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, "./static/upload");
-	},
-	filename: function (req, file, cb) {
-		cb(null, userId + ".jpg");
-	}
-});
-const upload = multer({
-	storage: storage
-});
-
-// MIDDLEWARE
+// Middleware setup ---------------------------------------
 // EJS templating engine
 app.set("view engine", "ejs");
 
-// Body parser
+// Body parser middleware
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
 app.use(bodyParser.json());
 
-// Session
+// Sessions voor applicatie initialiseren
 app.use(session({
 	secret: "2C44-4D44-WppQ38S",
 	resave: true,
 	saveUninitialized: true
 }));
 
-// Passport
+// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// global application variables
+// Flash message middleware
+app.use(flash());
+
+// Globale variablen voor applicatie
 app.use((req, res, next) => {
 	res.locals.user = req.user || null;
 	next();
 });
 
-// default folder for static content
+// Definiëren van public resources
 app.use(express.static(__dirname + "/static"));
 
-// ROUTING
+// MULTER SETUP (for uploading images)
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "./static/upload");
+    },
+    filename: function (req, file, cb) {
+        cb(null, userId + ".jpg");
+    }
+});
+const upload = multer({
+    storage: storage
+});
+
+// Routes op server ---------------------------------------
 app.post("/picture", upload.single("profilePicture"), pictureController.savePicture);
 app.use("/", routes);
 app.listen(port, () => {
