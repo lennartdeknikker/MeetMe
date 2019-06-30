@@ -60,7 +60,7 @@ exports.loadInfo = function (req, res) {
 };
 
 exports.saveInfo = function (req, res) {
-	const User = mongoose.model("user");
+	const User = mongoose.model("users");
 	mongoUtilities.findUser(req.session.passport.user).then(function (user) {
 		User.findOneAndUpdate({
 			username: user.username

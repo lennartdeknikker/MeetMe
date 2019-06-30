@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 // User model import
-require("../models/user");
-const User = mongoose.model("user");
+require("../models/users");
+const User = mongoose.model("users");
 
 // registration loaders
 exports.register = function (req, res) {
@@ -24,15 +24,16 @@ exports.registerPost = function (req, res) {
 				console.log("error_message", "Username is already in use!");
 				res.redirect("/register");
 			} else {
+				console.log(user);
 				const newUser = new User({
 					username: req.body.username,
 					password: req.body.password,
 					name: req.body.name,
 					birthday: "",
-					introduction: "Click change information to add your own introduction and interests.",
-					music: "",
-					movies: "",
-					books: "",
+					introduction: "<your introduction text>",
+					music: "Neutral",
+					movies: "Neutral",
+					books: "Neutral",
 					animal: "",
 					dogBreed: "",
 					catBreed: "",
@@ -45,7 +46,7 @@ exports.registerPost = function (req, res) {
 						if (err) throw (err);
 						newUser.password = hash;
 						newUser.save()
-							.then(user => {
+							.then(() => {
 								// Redirect when succeeded
 								console.log("success_message",
 									"You have successfully registered and you can now log in!"

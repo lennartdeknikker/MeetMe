@@ -1,7 +1,7 @@
 // User model import
 const mongoose = require("mongoose");
-require("../models/user");
-const User = mongoose.model("user");
+require("../models/users");
+const User = mongoose.model("users");
 
 require("dotenv").config();
 

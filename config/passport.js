@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const LocalStrategy = require("passport-local").Strategy;
 
 // Binnenhalen van User model
-const User = mongoose.model("user");
+const User = mongoose.model("users");
 
 module.exports = function(passport){
 	// Implementatie van lokale passport strategie

@@ -42,7 +42,7 @@ exports.settings = function (req, res) {
 };
 
 exports.onDelete = function (req, res) {
-	const User = mongoose.model("user");
+	const User = mongoose.model("users");
 	mongoUtilities.findUser(req.session.passport.user).then(function (user) {
 		User.findOneAndRemove({
 			username: user.username
